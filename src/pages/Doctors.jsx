@@ -1,26 +1,43 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function Doctors() {
-  const doctors = [
-    {
-      id: 1,
-      name: "Dr. Priya Sharma",
-      specialization: "Cardiologist",
-      icon: "❤️",
-    },
-    {
-      id: 2,
-      name: "Dr. Rahul Verma",
-      specialization: "Neurologist",
-      icon: "🧠",
-    },
-    {
-      id: 3,
-      name: "Dr. Anjali Reddy",
-      specialization: "Dermatologist",
-      icon: "✨",
-    },
-  ];
+  const [doctors, setDoctors] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    fetch("http://localhost:8082/doctors")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch doctors");
+        }
+
+        return response.json();
+      })
+      .then((data) => {
+        setDoctors(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching doctors:", error);
+        setError("Unable to load doctors. Please try again.");
+        setLoading(false);
+      });
+  }, []);
+
+  // Choose an icon based on specialization
+  const getDoctorIcon = (specialization) => {
+    if (!specialization) return "👨‍⚕️";
+
+    const specialty = specialization.toLowerCase();
+
+    if (specialty.includes("cardio")) return "❤️";
+    if (specialty.includes("neuro")) return "🧠";
+    if (specialty.includes("derma")) return "✨";
+
+    return "👨‍⚕️";
+  };
 
   return (
     <div className="doctors-page">
@@ -60,36 +77,70 @@ function Doctors() {
         </p>
       </div>
 
+      {/* Loading */}
+      {loading && (
+        <p style={{ textAlign: "center" }}>
+          Loading doctors...
+        </p>
+      )}
+
+      {/* Error */}
+      {error && (
+        <p
+          style={{
+            textAlign: "center",
+            color: "red",
+          }}
+        >
+          {error}
+        </p>
+      )}
+
       {/* Doctor Cards */}
-      <div className="doctors-grid">
-        {doctors.map((doctor) => (
-          <div className="doctor-card" key={doctor.id}>
+      {!loading && !error && (
+        <div className="doctors-grid">
 
-            <div className="doctor-icon">
-              {doctor.icon}
-            </div>
+          {doctors.length === 0 ? (
+            <p>No doctors available at the moment.</p>
+          ) : (
+            doctors.map((doctor) => (
+              <div className="doctor-card" key={doctor.id}>
 
-            <h3>{doctor.name}</h3>
+                <div className="doctor-icon">
+                  {getDoctorIcon(doctor.specialization)}
+                </div>
 
-            <p className="doctor-specialization">
-              {doctor.specialization}
-            </p>
+                <h3>{doctor.name}</h3>
 
-            <div className="doctor-divider"></div>
+                <p className="doctor-specialization">
+                  {doctor.specialization}
+                </p>
 
-            <p className="doctor-status">
-              ● Available for appointments
-            </p>
+                <div className="doctor-divider"></div>
 
-            <Link to={`/doctor/${doctor.id}`}>
-              <button className="book-doctor-btn">
-                Book Appointment →
-              </button>
-            </Link>
+                <p className="doctor-status">
+                  {doctor.available
+                    ? "● Available for appointments"
+                    : "● Currently unavailable"}
+                </p>
 
-          </div>
-        ))}
-      </div>
+                <Link to={`/doctor/${doctor.id}`}>
+                  <button
+                    className="book-doctor-btn"
+                    disabled={!doctor.available}
+                  >
+                    {doctor.available
+                      ? "Book Appointment →"
+                      : "Currently Unavailable"}
+                  </button>
+                </Link>
+
+              </div>
+            ))
+          )}
+
+        </div>
+      )}
 
     </div>
   );
