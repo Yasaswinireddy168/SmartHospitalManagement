@@ -1,0 +1,2184 @@
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f7faff;
+  color: #172033;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8%;
+  background: white;
+  border-bottom: 1px solid #e8edf5;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #1677ff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 35px;
+}
+
+.nav-links a {
+  color: #4b5565;
+  font-size: 15px;
+}
+
+.nav-links a:hover {
+  color: #1677ff;
+}
+
+.login-btn {
+  background: #1677ff;
+  color: white;
+  border: none;
+  padding: 11px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+
+/* =========================
+   HOME HERO
+========================= */
+
+.hero {
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 70px 10%;
+  gap: 80px;
+  background: linear-gradient(135deg, #f7fbff, #edf5ff);
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #e7f1ff;
+  color: #1677ff;
+  padding: 9px 15px;
+  border-radius: 25px;
+  font-size: 14px;
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-size: 55px;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.hero h1 span {
+  color: #1677ff;
+}
+
+.hero-content p {
+  color: #667085;
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 540px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #1677ff;
+  color: white;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.primary-btn:hover {
+  background: #0d65dd;
+  transform: translateY(-2px);
+}
+
+.secondary-btn {
+  background: white;
+  color: #172033;
+  border: 1px solid #d8e1ee;
+  padding: 14px 22px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.secondary-btn:hover {
+  border-color: #1677ff;
+  color: #1677ff;
+}
+
+
+/* =========================
+   HERO APPOINTMENT CARD
+========================= */
+
+.hero-card {
+  position: relative;
+}
+
+.appointment-card {
+  width: 360px;
+  background: white;
+  padding: 28px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(20, 70, 130, 0.15);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header p {
+  color: #7a8699;
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+
+.card-header h3 {
+  font-size: 20px;
+}
+
+.doctor-icon {
+  background: #e7f1ff;
+  color: #1677ff;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.appointment-info {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.appointment-info div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #667085;
+}
+
+.status {
+  margin-top: 25px;
+  background: #e9f9ef;
+  color: #20a25a;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.floating-card {
+  position: absolute;
+  right: -60px;
+  bottom: -35px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  padding: 15px 20px;
+  border-radius: 14px;
+  box-shadow: 0 10px 40px rgba(20, 70, 130, 0.15);
+}
+
+.floating-card strong {
+  display: block;
+  font-size: 18px;
+}
+
+.floating-card span {
+  font-size: 12px;
+  color: #7a8699;
+}
+
+
+/* =========================
+   FEATURES
+========================= */
+
+.features {
+  padding: 90px 10%;
+  background: white;
+}
+
+.section-title {
+  text-align: center;
+  max-width: 650px;
+  margin: auto;
+}
+
+.section-title span {
+  color: #1677ff;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.section-title h2 {
+  font-size: 36px;
+  margin: 12px 0;
+}
+
+.section-title p {
+  color: #667085;
+  line-height: 1.6;
+}
+
+.feature-grid {
+  margin-top: 55px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.feature-card {
+  padding: 30px;
+  border: 1px solid #edf0f5;
+  border-radius: 15px;
+  transition: 0.3s;
+  background: white;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(20, 70, 130, 0.1);
+}
+
+.feature-icon {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  background: #e7f1ff;
+  color: #1677ff;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  color: #667085;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+
+/* =========================
+   DOCTORS PAGE
+========================= */
+
+.doctors-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f7fbff, #edf5ff);
+}
+
+/* =========================
+   DOCTORS NAVBAR
+========================= */
+
+.doctors-page .navbar {
+  height: 75px;
+  padding: 0 8%;
+  background: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid #e8edf5;
+}
+
+.doctors-page .logo {
+  color: #1677ff;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Right side buttons */
+
+.doctor-nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-home-btn {
+  background: white;
+  color: #1677ff;
+
+  border: 1px solid #d4e3f5;
+
+  padding: 11px 22px;
+  border-radius: 8px;
+
+  font-size: 14px;
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.nav-home-btn:hover {
+  background: #eef6ff;
+}
+
+.doctor-nav-buttons .login-btn {
+  background: #1677ff;
+  color: white;
+
+  border: none;
+
+  padding: 11px 22px;
+  border-radius: 8px;
+
+  font-size: 14px;
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.doctor-nav-buttons .login-btn:hover {
+  background: #0d65dd;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.doctors-header {
+  text-align: center;
+
+  max-width: 700px;
+  margin: 0 auto;
+
+  padding: 70px 20px 45px;
+}
+
+.section-tag {
+  display: inline-block;
+
+  color: #1677ff;
+  background: #e7f1ff;
+
+  padding: 8px 16px;
+
+  border-radius: 20px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  margin-bottom: 18px;
+}
+
+.doctors-header h1 {
+  font-size: 46px;
+  line-height: 1.2;
+
+  color: #172033;
+
+  margin-bottom: 15px;
+}
+
+.doctors-header h1 span {
+  color: #1677ff;
+}
+
+.doctors-header p {
+  color: #667085;
+
+  font-size: 17px;
+  font-weight: normal;
+
+  line-height: 1.6;
+
+  margin: 0;
+}
+
+
+/* =========================
+   DOCTOR GRID
+========================= */
+
+/* IMPORTANT:
+   JSX uses doctors-grid
+*/
+
+.doctors-grid {
+  width: 100%;
+  max-width: 1150px;
+
+  margin: 0 auto;
+
+  padding: 20px 30px 80px;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 30px;
+
+  align-items: stretch;
+}
+
+
+/* =========================
+   DOCTOR CARD
+========================= */
+
+.doctor-card {
+  width: 100%;
+
+  background: white;
+
+  border: 1px solid #e5ebf3;
+
+  border-radius: 20px;
+
+  padding: 32px 28px;
+
+  text-align: center;
+
+  box-shadow: 0 8px 25px rgba(20, 70, 130, 0.07);
+
+  transition: all 0.3s ease;
+}
+
+.doctor-card:hover {
+  transform: translateY(-7px);
+
+  border-color: #bcd9ff;
+
+  box-shadow: 0 18px 40px rgba(20, 70, 130, 0.14);
+}
+
+
+/* =========================
+   DOCTOR ICON
+========================= */
+
+.doctor-icon {
+  width: 75px;
+  height: 75px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #e7f1ff;
+
+  border-radius: 18px;
+
+  font-size: 30px;
+}
+
+
+/* =========================
+   DOCTOR NAME
+========================= */
+
+.doctor-card h3 {
+  color: #172033;
+
+  font-size: 21px;
+
+  margin: 0 0 9px;
+
+  line-height: 1.3;
+}
+
+
+/* =========================
+   SPECIALIZATION
+========================= */
+
+.doctor-specialization {
+  color: #1677ff;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  margin: 0;
+}
+
+
+/* =========================
+   DIVIDER
+========================= */
+
+.doctor-divider {
+  width: 100%;
+  height: 1px;
+
+  background: #edf0f5;
+
+  margin: 22px 0;
+}
+
+
+/* =========================
+   AVAILABILITY
+========================= */
+
+.doctor-status {
+  color: #20a25a;
+
+  background: #eaf9f0;
+
+  display: inline-block;
+
+  padding: 7px 12px;
+
+  border-radius: 20px;
+
+  font-size: 13px;
+
+  margin: 0 0 24px;
+}
+
+
+/* =========================
+   BOOK BUTTON
+========================= */
+
+.doctor-card a {
+  display: block;
+  width: 100%;
+}
+
+.book-doctor-btn {
+  width: 100%;
+
+  background: #1677ff;
+
+  color: white;
+
+  border: none;
+
+  padding: 13px 20px;
+
+  border-radius: 9px;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.book-doctor-btn:hover {
+  background: #0d65dd;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+  .doctors-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    padding: 20px 30px 60px;
+
+    gap: 22px;
+  }
+
+  .doctors-header h1 {
+    font-size: 40px;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .doctors-page .navbar {
+    padding: 0 5%;
+  }
+
+  .doctors-page .logo {
+    font-size: 20px;
+  }
+
+  .doctor-nav-buttons {
+    gap: 6px;
+  }
+
+  .nav-home-btn,
+  .doctor-nav-buttons .login-btn {
+    padding: 9px 12px;
+
+    font-size: 12px;
+  }
+
+  .doctors-header {
+    padding: 50px 20px 30px;
+  }
+
+  .doctors-header h1 {
+    font-size: 34px;
+  }
+
+  .doctors-header p {
+    font-size: 15px;
+  }
+
+  .doctors-grid {
+    grid-template-columns: 1fr;
+
+    padding: 15px 20px 50px;
+
+    gap: 20px;
+  }
+
+  .doctor-card {
+    padding: 30px 25px;
+  }
+}
+
+/* =========================
+   DOCTOR DETAILS PAGE
+========================= */
+
+.doctor-details-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f7fbff, #edf5ff);
+}
+
+.back-home {
+  color: #667085;
+  font-size: 16px;
+}
+
+.back-home:hover {
+  color: #1677ff;
+}
+
+.doctor-details-container {
+  max-width: 850px;
+  margin: auto;
+  padding: 60px 25px 90px;
+  text-align: center;
+}
+
+.doctor-profile {
+  margin-bottom: 45px;
+}
+
+.large-doctor-avatar {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e7f1ff;
+  border-radius: 50%;
+  font-size: 30px;
+}
+
+.section-label {
+  color: #667085;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  margin-bottom: 18px;
+}
+
+.doctor-profile h1 {
+  font-size: 48px;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.specialization {
+  color: #1677ff;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 22px;
+}
+
+.available-text {
+  color: #20a25a;
+  font-size: 16px;
+}
+
+
+/* =========================
+   BOOKING SECTION
+========================= */
+
+.booking-section {
+  background: white;
+  padding: 45px;
+  border-radius: 20px;
+  box-shadow: 0 15px 45px rgba(20, 70, 130, 0.1);
+}
+
+.booking-section h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.booking-section > p {
+  color: #667085;
+  margin-bottom: 35px;
+  font-size: 16px;
+}
+
+.slot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.time-slot {
+  background: white;
+  border: 1.5px solid #d7e3f3;
+  color: #334155;
+  padding: 17px 12px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.time-slot:hover {
+  border-color: #1677ff;
+  background: #f0f7ff;
+}
+
+.selected-slot {
+  background: #1677ff;
+  color: white;
+  border-color: #1677ff;
+}
+
+.selected-info {
+  margin-top: 28px;
+  background: #e7f1ff;
+  color: #1677ff;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.confirm-btn {
+  margin-top: 30px;
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 10px;
+  background: #1677ff;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.confirm-btn:hover {
+  background: #0d65dd;
+}
+
+.confirm-btn:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}
+
+
+/* =========================
+   LOGIN & REGISTER
+========================= */
+
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eaf4ff, #f7faff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 450px;
+  background: white;
+  padding: 45px;
+  border-radius: 22px;
+  box-shadow: 0 20px 60px rgba(20, 70, 130, 0.15);
+  text-align: center;
+}
+
+.register-card {
+  max-width: 500px;
+}
+
+.login-logo {
+  display: inline-block;
+  color: #1677ff;
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.login-icon {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 20px;
+  background: #e7f1ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.login-card h1 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.login-subtitle {
+  color: #667085;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #344054;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px 15px;
+  border: 1px solid #d8e1ee;
+  border-radius: 9px;
+  font-size: 15px;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: #1677ff;
+  box-shadow: 0 0 0 3px rgba(22, 119, 255, 0.1);
+}
+
+.login-submit {
+  width: 100%;
+  padding: 15px;
+  margin-top: 5px;
+  background: #1677ff;
+  color: white;
+  border: none;
+  border-radius: 9px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-submit:hover {
+  background: #0d65dd;
+}
+
+.login-note {
+  margin-top: 25px;
+  color: #667085;
+  font-size: 14px;
+}
+
+.register-link {
+  color: #1677ff;
+  font-weight: bold;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================
+   PATIENT DASHBOARD
+========================= */
+
+.dashboard-page {
+  min-height: 100vh;
+  background: #f7faff;
+}
+
+.dashboard-navbar {
+  height: 75px;
+  background: white;
+  border-bottom: 1px solid #e8edf5;
+  padding: 0 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard-user {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  color: #667085;
+}
+
+.dashboard-user a {
+  color: #e63946;
+  font-weight: 600;
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 30px;
+}
+
+.dashboard-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 45px;
+}
+
+.dashboard-label {
+  color: #1677ff;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.dashboard-heading h1 {
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+
+.dashboard-heading p:not(.dashboard-label) {
+  color: #667085;
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-bottom: 55px;
+}
+
+.dashboard-card {
+  background: white;
+  padding: 28px;
+  border-radius: 16px;
+  border: 1px solid #e8edf5;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  box-shadow: 0 5px 20px rgba(20, 70, 130, 0.05);
+}
+
+.dashboard-card > span {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e7f1ff;
+  border-radius: 12px;
+  font-size: 24px;
+}
+
+.dashboard-card strong {
+  font-size: 25px;
+}
+
+.dashboard-card p {
+  color: #667085;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.dashboard-section {
+  margin-bottom: 50px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.section-heading h2 {
+  font-size: 24px;
+}
+
+.section-heading a {
+  color: #1677ff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.appointment-dashboard-card {
+  background: white;
+  padding: 28px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  border: 1px solid #e8edf5;
+  box-shadow: 0 5px 20px rgba(20, 70, 130, 0.05);
+}
+
+.appointment-doctor-icon {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #e7f1ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.appointment-main {
+  flex: 1;
+}
+
+.appointment-main h3 {
+  font-size: 20px;
+  margin-bottom: 7px;
+}
+
+.appointment-main > p {
+  color: #1677ff;
+  margin-bottom: 12px;
+}
+
+.appointment-meta {
+  display: flex;
+  gap: 20px;
+  color: #667085;
+  font-size: 14px;
+}
+
+.confirmed-badge {
+  background: #e9f9ef;
+  color: #20a25a;
+  padding: 9px 15px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.action-card {
+  background: white;
+  border: 1px solid #e8edf5;
+  padding: 30px;
+  border-radius: 16px;
+  color: #172033;
+  transition: 0.3s;
+}
+
+.action-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(20, 70, 130, 0.1);
+}
+
+.action-card span {
+  font-size: 30px;
+}
+
+.action-card h3 {
+  margin: 18px 0 10px;
+}
+
+.action-card p {
+  color: #667085;
+  font-size: 14px;
+}
+
+
+/* =========================
+   EXTRA RESPONSIVE FIXES
+========================= */
+
+@media (max-width: 900px) {
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 70px 7%;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .feature-grid,
+  .dashboard-cards,
+  .quick-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero-card {
+    margin-top: 20px;
+  }
+
+  .floating-card {
+    right: 0;
+    bottom: -50px;
+  }
+
+  .dashboard-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+  }
+
+  .slot-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .doctor-profile h1 {
+    font-size: 38px;
+  }
+
+  .appointment-dashboard-card {
+    flex-wrap: wrap;
+  }
+
+  .confirmed-badge {
+    margin-top: 10px;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .navbar,
+  .dashboard-navbar {
+    padding: 0 5%;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .login-card {
+    padding: 35px 25px;
+  }
+
+  .dashboard-container {
+    padding: 45px 20px;
+  }
+
+  .booking-section {
+    padding: 30px 20px;
+  }
+
+  .slot-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .doctor-profile h1 {
+    font-size: 32px;
+  }
+
+  .appointment-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* ========================================
+   BOOKING / APPOINTMENT CONFIRMATION PAGE
+   ======================================== */
+
+.booking-page {
+  width: 100%;
+  min-width: 0;
+  min-height: 100vh;
+  background: #f4f8fc;
+  box-sizing: border-box;
+  padding: 24px;
+}
+
+
+/* ========================================
+   TOP NAVIGATION
+   ======================================== */
+
+.booking-navbar {
+  width: 100%;
+  max-width: 1100px;
+  min-width: 0;
+  margin: 0 auto 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+}
+
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  border: none;
+  background: transparent;
+
+  color: #334155;
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  padding: 10px 14px;
+  border-radius: 8px;
+
+  white-space: nowrap;
+}
+
+
+.back-button:hover {
+  background: #e7eef7;
+}
+
+
+.booking-logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1976d2;
+}
+
+
+/* ========================================
+   MAIN CONTAINER
+   ======================================== */
+
+.booking-container {
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding-bottom: 40px;
+
+  box-sizing: border-box;
+}
+
+
+/* ========================================
+   APPOINTMENT CARD
+   ======================================== */
+
+.booking-card {
+  width: 100%;
+  max-width: 620px;
+  min-width: 0;
+
+  background: #ffffff;
+
+  border-radius: 22px;
+
+  padding: 45px;
+
+  box-sizing: border-box;
+
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+
+  text-align: left;
+}
+
+
+/* ========================================
+   SUCCESS ICON
+   ======================================== */
+
+.booking-icon {
+  width: 75px;
+  height: 75px;
+
+  border-radius: 50%;
+
+  background: #e8f4ff;
+  color: #1976d2;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 auto 25px;
+
+  flex-shrink: 0;
+}
+
+
+/* ========================================
+   HEADING
+   ======================================== */
+
+.booking-card h1 {
+  margin: 0 0 10px;
+
+  text-align: center;
+
+  font-size: 36px;
+  line-height: 1.25;
+
+  color: #1e293b;
+}
+
+
+.booking-subtitle {
+  margin: 0 0 30px;
+
+  text-align: center;
+
+  color: #64748b;
+
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+
+/* ========================================
+   APPOINTMENT NUMBER
+   ======================================== */
+
+.appointment-number {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  box-sizing: border-box;
+
+  background: #f8fafc;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+
+  padding: 18px 20px;
+
+  margin-bottom: 25px;
+}
+
+
+.appointment-number span {
+  color: #64748b;
+  font-size: 15px;
+}
+
+
+.appointment-number strong {
+  color: #1976d2;
+  font-size: 17px;
+
+  white-space: nowrap;
+}
+
+
+/* ========================================
+   APPOINTMENT DETAILS
+   ======================================== */
+
+.booking-details {
+  width: 100%;
+  min-width: 0;
+
+  box-sizing: border-box;
+
+  margin-bottom: 25px;
+}
+
+
+.booking-row {
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 14px 5px;
+
+  border-bottom: 1px solid #e2e8f0;
+
+  box-sizing: border-box;
+}
+
+
+.booking-row:last-child {
+  border-bottom: none;
+}
+
+
+.booking-row span {
+  color: #64748b;
+
+  font-size: 15px;
+
+  flex-shrink: 0;
+}
+
+
+.booking-row strong {
+  color: #1e293b;
+
+  font-size: 16px;
+
+  text-align: right;
+
+  overflow-wrap: break-word;
+}
+
+
+.pending {
+  color: #d97706 !important;
+}
+
+
+/* ========================================
+   BILLING NOTICE
+   ======================================== */
+
+.billing-notice {
+  width: 100%;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 14px;
+
+  box-sizing: border-box;
+
+  background: #f8fafc;
+
+  border-radius: 12px;
+
+  padding: 18px;
+
+  margin-bottom: 25px;
+
+  color: #334155;
+}
+
+
+.billing-notice svg {
+  flex-shrink: 0;
+
+  color: #1976d2;
+}
+
+
+.billing-notice strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-size: 16px;
+}
+
+
+.billing-notice p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  overflow-wrap: break-word;
+}
+
+
+/* ========================================
+   CONFIRM BUTTON
+   ======================================== */
+
+.confirm-booking-btn {
+  width: 100%;
+
+  border: none;
+
+  background: #1976d2;
+
+  color: white;
+
+  padding: 16px;
+
+  border-radius: 10px;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+
+  transition: 0.2s ease;
+}
+
+
+.confirm-booking-btn:hover {
+  background: #125ea8;
+
+  transform: translateY(-1px);
+}
+
+
+/* ========================================
+   TABLET / SMALL LAPTOP
+   ======================================== */
+
+@media (max-width: 768px) {
+
+  .booking-page {
+    padding: 16px;
+  }
+
+  .booking-navbar {
+    margin-bottom: 25px;
+  }
+
+  .booking-card {
+    max-width: 620px;
+
+    padding: 30px 24px;
+
+    border-radius: 18px;
+  }
+
+  .booking-card h1 {
+    font-size: 30px;
+  }
+
+  .booking-icon {
+    width: 65px;
+    height: 65px;
+
+    margin-bottom: 20px;
+  }
+
+}
+
+
+/* ========================================
+   MOBILE
+   ======================================== */
+
+@media (max-width: 480px) {
+
+  .booking-page {
+    padding: 12px;
+  }
+
+
+  .booking-navbar {
+    margin-bottom: 20px;
+  }
+
+
+  .booking-logo {
+    font-size: 20px;
+  }
+
+
+  .back-button {
+    font-size: 14px;
+
+    padding: 8px;
+  }
+
+
+  .booking-card {
+    padding: 25px 18px;
+
+    border-radius: 16px;
+  }
+
+
+  .booking-card h1 {
+    font-size: 25px;
+
+    line-height: 1.3;
+  }
+
+
+  .booking-subtitle {
+    font-size: 14px;
+
+    margin-bottom: 25px;
+  }
+
+
+  .appointment-number {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 7px;
+
+    padding: 15px;
+  }
+
+
+  .booking-row {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 5px;
+
+    padding: 13px 0;
+  }
+
+
+  .booking-row strong {
+    text-align: left;
+  }
+
+
+  .billing-notice {
+    padding: 15px;
+
+    gap: 10px;
+  }
+
+
+  .confirm-booking-btn {
+    padding: 15px;
+  }
+  /* ========================================
+   BILLING SLIP PAGE
+======================================== */
+
+.billing-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #f4f8fc;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+
+.billing-navbar {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.billing-back-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  border: none;
+  background: transparent;
+
+  color: #334155;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  padding: 10px 14px;
+
+  border-radius: 8px;
+}
+
+
+.billing-back-button:hover {
+  background: #e7eef7;
+}
+
+
+.billing-logo {
+  font-size: 24px;
+  font-weight: 700;
+
+  color: #1976d2;
+}
+
+
+/* Main Container */
+
+.billing-container {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+
+  padding-bottom: 40px;
+}
+
+
+/* Billing Card */
+
+.billing-card {
+  width: 100%;
+  max-width: 650px;
+
+  background: white;
+
+  border-radius: 22px;
+
+  padding: 40px;
+
+  box-sizing: border-box;
+
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+}
+
+
+/* Header */
+
+.billing-header {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  padding-bottom: 25px;
+
+  border-bottom: 1px solid #e2e8f0;
+}
+
+
+.hospital-icon {
+  width: 65px;
+  height: 65px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  background: #e8f4ff;
+
+  color: #1976d2;
+}
+
+
+.billing-header h1 {
+  margin: 0 0 5px;
+
+  font-size: 27px;
+
+  color: #1e293b;
+}
+
+
+.billing-header p {
+  color: #64748b;
+}
+
+
+/* Appointment Number */
+
+.billing-number {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 25px 0;
+
+  padding: 17px 20px;
+
+  border-radius: 12px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e2e8f0;
+}
+
+
+.billing-number span {
+  color: #64748b;
+}
+
+
+.billing-number strong {
+  color: #1976d2;
+
+  font-size: 17px;
+}
+
+
+/* Sections */
+
+.billing-section {
+  margin-bottom: 25px;
+}
+
+
+.billing-section h3 {
+  margin-bottom: 12px;
+
+  font-size: 18px;
+
+  color: #1e293b;
+}
+
+
+.billing-row {
+  display: flex;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 13px 5px;
+
+  border-bottom: 1px solid #e2e8f0;
+}
+
+
+.billing-row span {
+  color: #64748b;
+}
+
+
+.billing-row strong {
+  color: #1e293b;
+
+  text-align: right;
+}
+
+
+/* Total */
+
+.billing-total {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 15px;
+
+  padding: 17px;
+
+  border-radius: 10px;
+
+  background: #e8f4ff;
+}
+
+
+.billing-total span {
+  font-weight: 600;
+
+  color: #334155;
+}
+
+
+.billing-total strong {
+  color: #1976d2;
+
+  font-size: 20px;
+}
+
+
+/* Payment Status */
+
+.payment-status {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  background: #fff7ed;
+
+  padding: 18px;
+
+  border-radius: 12px;
+
+  color: #d97706;
+
+  margin-bottom: 25px;
+}
+
+
+.payment-status svg {
+  flex-shrink: 0;
+}
+
+
+.payment-status strong {
+  display: block;
+
+  margin-bottom: 5px;
+}
+
+
+.payment-status p {
+  color: #92400e;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+
+/* Buttons */
+
+.billing-actions {
+  display: flex;
+
+  gap: 15px;
+}
+
+
+.print-billing-btn,
+.billing-home-btn {
+  flex: 1;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 8px;
+
+  border: none;
+
+  padding: 15px;
+
+  border-radius: 10px;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+.print-billing-btn {
+  background: #1976d2;
+
+  color: white;
+}
+
+
+.billing-home-btn {
+  background: #eef4fb;
+
+  color: #1976d2;
+}
+
+
+.print-billing-btn:hover {
+  background: #125ea8;
+}
+
+
+.billing-home-btn:hover {
+  background: #e1edf9;
+}
+
+
+/* ========================================
+   MOBILE RESPONSIVE
+======================================== */
+
+@media (max-width: 600px) {
+
+  .billing-page {
+    padding: 14px;
+  }
+
+
+  .billing-navbar {
+    margin-bottom: 22px;
+  }
+
+
+  .billing-card {
+    padding: 25px 18px;
+
+    border-radius: 17px;
+  }
+
+
+  .billing-header {
+    align-items: flex-start;
+  }
+
+
+  .billing-header h1 {
+    font-size: 22px;
+  }
+
+
+  .hospital-icon {
+    width: 55px;
+    height: 55px;
+  }
+
+
+  .billing-number {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 7px;
+  }
+
+
+  .billing-row {
+    flex-direction: column;
+
+    gap: 5px;
+  }
+
+
+  .billing-row strong {
+    text-align: left;
+  }
+
+
+  .billing-total {
+    flex-direction: column;
+
+    gap: 7px;
+  }
+
+
+  .billing-actions {
+    flex-direction: column;
+  }
+
+}
+
+
+/* ========================================
+   PRINT SETTINGS
+======================================== */
+
+@media print {
+
+  .billing-navbar,
+  .billing-actions {
+    display: none;
+  }
+
+
+  .billing-page {
+    background: white;
+
+    padding: 0;
+  }
+
+
+  .billing-card {
+    box-shadow: none;
+
+    max-width: 100%;
+  }
+
+}
+
+}
