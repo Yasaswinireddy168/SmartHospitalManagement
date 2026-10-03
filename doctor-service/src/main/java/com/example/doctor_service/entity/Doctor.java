@@ -17,21 +17,23 @@ public class Doctor {
     private String phone;
     private String email;
     private String availability;
-
     private boolean available;
+    private String password;
 
     public Doctor() {
     }
 
     public Doctor(String name, String specialization,
                   String phone, String email,
-                  String availability, boolean available) {
+                  String availability, boolean available,
+                  String password) {
         this.name = name;
         this.specialization = specialization;
         this.phone = phone;
         this.email = email;
         this.availability = availability;
         this.available = available;
+        this.password = password;
     }
 
     public Long getId() {
@@ -84,5 +86,13 @@ public class Doctor {
 
     public void setAvailable(boolean available) {
         this.available = available;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.appointment_service.client.NotificationClient;
 import com.example.appointment_service.client.DoctorClient;
 import com.example.appointment_service.client.PatientClient;
 import com.example.appointment_service.entity.Appointment;
@@ -17,15 +18,18 @@ public class AppointmentService {
     private final AppointmentRepository appointmentRepository;
     private final PatientClient patientClient;
     private final DoctorClient doctorClient;
+    private final NotificationClient notificationClient;
 
     public AppointmentService(
             AppointmentRepository appointmentRepository,
             PatientClient patientClient,
-            DoctorClient doctorClient) {
+            DoctorClient doctorClient,
+            NotificationClient notificationClient) {
 
         this.appointmentRepository = appointmentRepository;
         this.patientClient = patientClient;
         this.doctorClient = doctorClient;
+        this.notificationClient = notificationClient;
     }
 
 
@@ -74,7 +78,22 @@ public class AppointmentService {
         appointment.setStatus("BOOKED");
 
         // Save appointment
-        return appointmentRepository.save(appointment);
+        Appointment savedAppointment =
+                appointmentRepository.save(appointment);
+
+        // Create appointment notification
+        String message =
+                "Appointment with Doctor ID "
+                + appointment.getDoctorId()
+                + " has been successfully booked.";
+
+        notificationClient.createNotification(
+                appointment.getPatientId(),
+                message,
+                "APPOINTMENT"
+        );
+
+        return savedAppointment;
     }
 
 
@@ -174,7 +193,7 @@ public class AppointmentService {
         );
 
         // Keep the updated appointment as BOOKED
-        existingAppointment.setStatus("BOOKED");
+        existingAppointment.setStatus(appointment.getStatus());
 
         return appointmentRepository.save(
                 existingAppointment
@@ -185,17 +204,30 @@ public class AppointmentService {
     // Cancel appointment
     public void cancelAppointment(Long id) {
 
-        Appointment appointment =
-                appointmentRepository.findById(id)
-                        .orElseThrow(() ->
-                                new RuntimeException(
-                                        "Appointment not found"
-                                ));
+    Appointment appointment =
+            appointmentRepository.findById(id)
+                    .orElseThrow(() ->
+                            new RuntimeException("Appointment not found"));
 
-        appointment.setStatus("CANCELLED");
+    appointment.setStatus("CANCELLED");
 
-        appointmentRepository.save(appointment);
-    }
+    appointmentRepository.save(appointment);
+
+    String message =
+            "Your appointment with Doctor ID "
+            + appointment.getDoctorId()
+            + " on "
+            + appointment.getAppointmentDate()
+            + " at "
+            + appointment.getAppointmentTime()
+            + " has been cancelled by the doctor.";
+
+    notificationClient.createNotification(
+            appointment.getPatientId(),
+            message,
+            "APPOINTMENT_CANCELLED"
+    );
+}
 
 
     // Get all appointments of a doctor

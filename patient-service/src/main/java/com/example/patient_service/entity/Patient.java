@@ -18,18 +18,21 @@ public class Patient {
     private String phone;
     private String email;
     private String address;
+    private String password;
 
     public Patient() {
     }
 
     public Patient(String name, int age, String gender,
-                   String phone, String email, String address) {
+                   String phone, String email, String address,
+                   String password) {
         this.name = name;
         this.age = age;
         this.gender = gender;
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.password = password;
     }
 
     public Long getId() {
@@ -82,5 +85,13 @@ public class Patient {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
